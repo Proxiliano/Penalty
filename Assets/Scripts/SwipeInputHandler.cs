@@ -8,7 +8,7 @@ public class SwipeInputHandler : MonoBehaviour
     public float minSwipeLength = 50f;
     public float maxTrackTime = 1f;
 
-    private PlayerInputActions inputActions;
+   // private PlayerInputActions inputActions;
     private List<Vector2> swipePoints = new List<Vector2>();
     private float swipeStartTime;
     private bool isSwiping = false;
@@ -23,20 +23,20 @@ public class SwipeInputHandler : MonoBehaviour
 
     private void Awake()
     {
-        inputActions = new PlayerInputActions();
+       // inputActions = new PlayerInputActions();
 
-        inputActions.Touch.PointerPress.started += ctx => StartSwipe();
-        inputActions.Touch.PointerPress.canceled += ctx => EndSwipe();
+       // inputActions.Touch.PointerPress.started += ctx => StartSwipe();
+       // inputActions.Touch.PointerPress.canceled += ctx => EndSwipe();
     }
 
-    private void OnEnable() => inputActions.Enable();
-    private void OnDisable() => inputActions.Disable();
+    //private void OnEnable() => inputActions.Enable();
+    //private void OnDisable() => inputActions.Disable();
 
     private void Update()
     {
         if (!isSwiping) return;
 
-        Vector2 pointerPos = inputActions.Touch.PointerPosition.ReadValue<Vector2>();
+       // Vector2 pointerPos = inputActions.Touch.PointerPosition.ReadValue<Vector2>();
 
         if (Time.time - swipeStartTime > maxTrackTime)
         {
@@ -44,9 +44,9 @@ public class SwipeInputHandler : MonoBehaviour
             return;
         }
 
-        if (swipePoints.Count == 0 || Vector2.Distance(swipePoints[^1], pointerPos) > 5f)
+       // if (swipePoints.Count == 0 || Vector2.Distance(swipePoints[^1], pointerPos) > 5f)
         {
-            swipePoints.Add(pointerPos);
+            //swipePoints.Add(pointerPos);
         }
     }
 
@@ -56,8 +56,8 @@ public class SwipeInputHandler : MonoBehaviour
         swipeStartTime = Time.time;
         swipePoints.Clear();
 
-        Vector2 startPos = inputActions.Touch.PointerPosition.ReadValue<Vector2>();
-        swipePoints.Add(startPos);
+       // Vector2 startPos = inputActions.Touch.PointerPosition.ReadValue<Vector2>();
+       // swipePoints.Add(startPos);
     }
 
     private void EndSwipe()

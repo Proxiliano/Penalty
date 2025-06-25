@@ -36,12 +36,12 @@ public class KickPowerSelector : MonoBehaviour
     private void OnEnable()
     {
         // подписка на SwipeInputHandler (ты подставишь свой вызов)
-        SwipeInputHandler_NewInput.OnSwipeCompleted += ActivateSelector;
+        //SwipeInputHandler_NewInput.OnSwipeCompleted += ActivateSelector;
     }
 
     private void OnDisable()
     {
-        SwipeInputHandler_NewInput.OnSwipeCompleted -= ActivateSelector;
+        //SwipeInputHandler_NewInput.OnSwipeCompleted -= ActivateSelector;
     }
 
     private void Update()
